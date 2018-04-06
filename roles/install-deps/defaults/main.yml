@@ -8,29 +8,23 @@ known_distros:
   - Arch Linux
 
 debian_deps:
-  - build
-  - essential
-  - libncurses5-dev
   - git
   - iptables-persistent
+  - libssl
 
 centos_deps:
-  - gcc
   - git
-  - make
+  - openssl
 
 ubuntu_deps:
-  - gcc-multilib
   - git
-  - make
   - iptables-persistent
+  - libssl
 
 fedora_deps:
-  - gcc
   - git
-  - make
+  - openssl
 
 arch_deps:
-  - gcc
   - git
-  - make
+  - openssl

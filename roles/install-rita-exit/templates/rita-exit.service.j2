@@ -1,0 +1,13 @@
+# This is a systemd service for Rita-exit
+[Unit]
+Description=rita-exit
+Requires=network.target
+After=babeld.service
+
+[Service]
+Type=simple
+TimeoutStartSec=10s
+ExecStart=/usr/bin/rita_exit --default /etc/rita-default.toml --config /etc/rita-exit.toml
+
+[Install]
+WantedBy=default.target

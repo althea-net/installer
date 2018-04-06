@@ -1,8 +1,0 @@
-#!/bin/bash
-set -eux
-
-{% for gateway in gateways %}
-wg setconf wgBridge-{{gateway.port}} /etc/wireguard/wgBridge-{{gateway.port}}.conf
-{% endfor %}
-
-wg setconf wgInternal /etc/wireguard/wgInternal.conf

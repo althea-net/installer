@@ -1,5 +1,0 @@
-default enable-timestamps true
-{% for gateway in gateways %}
-redistribute if  wgBridge-{{gateway.port}} allow
-{% endfor %}
-redistribute local deny

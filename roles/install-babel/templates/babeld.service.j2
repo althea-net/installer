@@ -7,7 +7,7 @@ After=wiregaurd.service
 [Service]
 Type=simple
 TimeoutStartSec=10s
-ExecStart=/usr/local/bin/babeld {% for gateway in gateways %} wgBridge-{{gateway.port}} {% endfor %} wgInternal -d1 -h1 -c /etc/babeld.conf
+ExecStart=/usr/local/bin/babeld -G 6872 -d1 -h1 -c /etc/babeld.conf lo
 
 [Install]
 WantedBy=default.target

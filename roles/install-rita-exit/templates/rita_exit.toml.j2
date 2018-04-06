@@ -1,0 +1,28 @@
+db_file = "{{database_dir}}"
+
+[payment]
+pay_threshold = "0"
+close_threshold = "-1000000000"
+close_fraction = "100"
+buffer_period = 3
+eth_address = "0x0101010101010101010101010101010101010101"
+
+[network]
+own_ip = "{{exit_mesh_ip}}"
+bounty_ip = "{{exit_mesh_ip}}"
+babel_port = 6872
+rita_port = 4876
+bounty_port = 8888
+wg_private_key = "{{wg_private_key}}"
+wg_private_key_path = "/tmp/priv"
+wg_public_key = "{{wg_public_key}}"
+wg_start_port = 60000
+peer_interfaces = []
+manual_peers = []
+
+[exit_network]
+wg_tunnel_port = 59999
+external_nic = "{{external_nic}}"
+exit_price = 50
+own_internal_ip = "{{internal_nat_ip}}"
+netmask = "{{internal_netmasq}}"

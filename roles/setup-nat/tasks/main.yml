@@ -24,7 +24,7 @@
 - name: Reload sysctl
   shell: "sysctl -p"
   become: true
-  when: sysctl | changed
+  when: sysctl is changed
 
 - name: Ensure iptables runs on startup
   service:
