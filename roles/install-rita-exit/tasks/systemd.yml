@@ -1,0 +1,18 @@
+---
+# Sets up Rita Exit service on systemd systems
+
+- name: Template Rita-exit service file
+  template:
+    src: rita-exit.service.j2
+    dest: /etc/systemd/system/rita-exit.service
+  become: true
+  register: rita_exit_service
+
+- name: Set Rita-exit to run on startup
+  systemd:
+    daemon_reload: yes
+    name: rita-exit
+    state: restarted
+    enabled: yes
+  become: true
+  when: rita_exit_service is changed

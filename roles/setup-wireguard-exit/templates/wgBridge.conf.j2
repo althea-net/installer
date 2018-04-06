@@ -1,9 +1,0 @@
-[Interface]
-PrivateKey = {{wg_private_key}}
-ListenPort = {{item.port}}
-
-[Peer]
-PublicKey = {{item.wg_pubkey}}
-Endpoint = [{{item.mesh_ip}}]:{{item.port}}
-AllowedIPs = ::/0
-PersistentKeepalive = 25

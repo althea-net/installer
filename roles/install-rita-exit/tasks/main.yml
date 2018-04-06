@@ -1,0 +1,44 @@
+---
+# Sets up the babeld as a system service
+
+- name: Copy rita-exit binary
+  copy:
+    src: rita_exit
+    dest: /usr/bin/rita_exit
+    mode: 0755
+  become: true
+
+- name: Creat Rita database dir
+  stat:
+    path: "{{database_dir}}"
+  become: true
+  register: database
+
+- name: Copy empty db
+  copy:
+    src: blankdb.db
+    dest: "{{database_dir}}"
+  backup: yes
+  become: true
+  when: database.stat.isfile is not defined
+
+- name: Copy the rita-exit config
+  template:
+    src: rita_exit.toml.j2
+    dest: /etc/rita-exit.toml
+  become: true
+
+- name: Copy the rita default config
+  copy:
+    src: rita-default.toml
+    dest: /etc/rita-default.toml
+  become: true
+
+
+- name: Fail on nonsystemd systems
+  fail:
+    msg: "No support for non systemd services, please add support for your init system!"
+  when: "ansible_service_mgr != 'systemd'"
+
+- include_tasks: systemd.yml
+

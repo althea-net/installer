@@ -1,19 +1,8 @@
 wg_public_key:
 wg_private_key:
-# The ip address of the exit server on the mesh
 exit_mesh_ip:
-# The internet facing port on the Exit server, Natted traffic will flow out here
-external_nic:
-# The ip used as the default route for the user wireguard tunnels
 internal_nat_ip:
-# The wireguard port used 51820 is the default
-wg_port:
-clients:
- - wg_pubkey:
-   internal_ip: 172.168.x.x
-   mesh_ip: fdee::dead:beef/128
-
-gateways:
-    - wg_pubkey:
-      mesh_ip:
-      port: 51821
+internal_netmasq:
+external_nic:
+wg_port: 51820
+wireguard_version: 0.0.20180304

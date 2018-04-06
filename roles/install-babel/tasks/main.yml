@@ -1,14 +1,14 @@
 ---
-# Clones and installs babel from althea's repo
-
-- name: Clone Althea's branch of Babeld
-  git:
-   repo: "{{babel_repo}}"
-   version: master
-   dest: "{{build_dir}}"
-
-- name: Build and install Babeld
-  make:
-   chdir: "{{build_dir}}"
-   target: install
+- name: Copy over babled
+  copy:
+    src: babeld
+    dest: /usr/bin/babeld
+    mode: 0755
   become: true
+
+- name: Fail on nonsystemd systems
+  fail:
+    msg: "No support for non systemd services, please add support for your init system!"
+  when: "ansible_service_mgr != 'systemd'"
+
+- include_tasks: systemd.yml

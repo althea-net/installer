@@ -6,9 +6,9 @@
 
 - name: Install wireguard
   dnf:
-    name: "{{item}}"
-    state: latest
-  become: true 
+    name: "{{item}}-{{wireguard_version}}"
+  become: true
+  allow_downgrade: true
   with_items:
     - wireguard-dkms
     - wireguard-tools
