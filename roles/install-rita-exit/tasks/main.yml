@@ -1,6 +1,17 @@
 ---
 # Sets up the babeld as a system service
 
+- name: Check for Rita Exit bianry
+  stat:
+    path: "rita_exit"
+  register: rita_exit_bin
+
+- name: Rita bin not present, download latest release
+  get_url:
+    url: "{{rita_exit_bin_url}}"
+    dest: rita_exit
+  when: rita_exit_bin.stat.isfile is not defined
+
 - name: Copy rita-exit binary
   copy:
     src: rita_exit

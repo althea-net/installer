@@ -1,4 +1,15 @@
 ---
+- name: Check for Babel bianry
+  stat:
+    path: "babeld"
+  register: babeld_bin
+
+- name: Babel bin not present, download latest release
+  get_url:
+    url: "{{babeld_bin_url}}"
+    dest: babled
+  when: babeld_bin.stat.isfile is not defined
+
 - name: Copy over babled
   copy:
     src: babeld

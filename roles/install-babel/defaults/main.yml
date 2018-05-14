@@ -2,3 +2,4 @@
 babel_repo: https://github.com/althea-mesh/babeld
 build_dir: "{{ansible_env.HOME}}/babeld"
 babeld_port: 6696
+babeld_bin_url: "https://github.com/althea-mesh/babeld/releases/download/0.1.0/babeld"

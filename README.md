@@ -36,31 +36,6 @@ On Centos and RHEL:
 
 All other required software will be installed by the setup playbook
 
-Install [Rust](https://www.rustup.rs) and add Rustup to your path 
-
-Building the binaries
------------------------
-
-As there are currently no release binaries for desktop you'll have to build rita, rita_exit
-and Babeld yoruself. It's not very hard. 
-
-> git clone https://github.com/althea-mesh/babeld
-> cd babeld
-> git checkout pre-0.1.0
-> make
-
-You now have a babeld binary, put it in the same folder as the install playbooks
-
-> git clone https://github.com/althea-mesh/althea_rs
-> cd althea_rs
-> git checkout pre-0.1.0
-> cargo build --all
-> cp target/debug/rita .
-> cp target/debug/rita_exit .
-
-Now you have the Rita and Rita exit binaries, put these in the same foldder as the
-install playbooks. 
-
 Setting up an Exit server
 -------------------------
 
