@@ -10,7 +10,7 @@ known_distros:
 debian_deps:
   - git
   - iptables-persistent
-  - libssl
+  - libssl-dev
   - iproute
   - ebtables
   - ipset

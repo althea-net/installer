@@ -44,7 +44,7 @@
   become: true
   register: babel_service
 
-- name: Set babeld to run on startup
+- name: Set Babeld to run on startup
   systemd:
     daemon_reload: yes
     name: babeld
