@@ -14,7 +14,7 @@ debian_deps:
 
 postgres_centos_repo: https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-centos11-11-2.noarch.rpm
 
-pg_path: "{{ '/var/lib/pgsql/data/' if ansible_distribution != 'CentOS' and ansible_distribution != 'Red Hat Enterprise Linux' else '/var/lib/pgsql/11/data/' }}"
+pg_path: "{{ '/etc/postgresql/10/main/' if ansible_distribution == 'Ubuntu' else '/var/lib/pgsql/data/' if ansible_distribution != 'CentOS' and ansible_distribution != 'Red Hat Enterprise Linux' else '/var/lib/pgsql/11/data/' }}"
 pg_service_name: "{{ 'postgresql' if ansible_distribution != 'CentOS' and ansible_distribution != 'Red Hat Enterprise Linux' else 'postgresql-11' }}"
 
 centos_deps:
