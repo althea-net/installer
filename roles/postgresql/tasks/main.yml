@@ -103,8 +103,14 @@
   become: true
   become_user: postgres
   postgresql_user:
-    db: "{{db_name}}"
     name: "{{db_user}}"
     password: "{{db_password}}"
-    priv: "CONNECT/{{db_name}}:ALL"
-    expires: infinity
+
+- name: Grant privs
+  become: true
+  become_user: postgres
+  postgresql_privs:
+    db: "{{db_name}}"
+    role: "{{db_user}}"
+    objs: ALL_IN_SCHEMA
+    privs: SELECT,INSERT,UPDATE,DELETE
