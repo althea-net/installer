@@ -4,7 +4,7 @@ exit_registration_port: 4875
 bounty_port: 8888
 wg_start_port: 60000
 firewall_start_port: "{{ wg_start_port | int -1 }}"
-rita_exit_bin_url: "https://github.com/althea-mesh/althea_rs/releases/download/R-Beta11RC11/rita_exit"
+rita_exit_bin_url: "https://github.com/althea-mesh/althea_rs/releases/download/Beta12RC1/rita_exit"
 allowed_country_codes: "[]"
 mailer: false
 internal_nat_ip: 172.168.0.254
