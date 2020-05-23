@@ -7,7 +7,6 @@ allowed_countries = {{allowed_country_codes}}
 max_fee = "{{max_fee}}"
 local_fee = "0"
 eth_private_key = "{{eth_private_key}}"
-dynamic_fee_multiplier = {{fee_multiplier}}
 node_list = [{% for node in full_nodes %}"{{node}}"{{ "," if not loop.last else "" }}{% endfor %}]
 buffer_period = 3
 system_chain = "{{system_chain}}"
