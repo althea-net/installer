@@ -1,10 +1,10 @@
 # Sets up the babeld as a system service
 
-- name: Check for Rita bianry
+- name: Check for Rita binary
   local_action: stat path="{{playbook_dir}}/rita"
   register: rita_bin
 
-- name: Rita bin not present, download latest release
+- name: Rita binary not present, download latest release
   get_url:
     url: "{{rita_bin_url}}"
     dest: "/usr/bin/rita"
